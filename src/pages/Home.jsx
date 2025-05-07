@@ -4,23 +4,25 @@ import '../styles/Home.css';
 function HomePage() {
   return (
     <div className="home">
-      <nav className="navbar">BeanThere</nav>
+      <nav className="navbar">
+        <span className="logo">☕  BeanThere</span>
+      </nav>
 
       <header className="hero">
         <h1>Find Your Perfect Brew</h1>
-        <p>Discover cafes near you</p>
+        <p>Discover cozy cafes near you</p>
+        <div className="search-bar">
+          <input type="text" placeholder="Enter your location" />
+          <button className="search-btn">Search</button>
+        </div>
       </header>
 
-      <div className="search-bar">
-        <input type="text" placeholder="Enter your location" />
-      </div>
-
       <section className="featured">
-        <h2>Featured Cafes</h2>
-        <div className="carousel">Yet to be uploaded</div>
+        <h2>✨ Featured Cafes</h2>
+        <div className="carousel">Carousel Coming Soon!</div>
       </section>
 
-      <footer className="footer">© BeanThere 2025</footer>
+      <footer className="footer">© BeanThere 2025 • Brewed with love ☕</footer>
     </div>
   );
 }

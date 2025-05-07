@@ -1,51 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .home {
     background-color: #f5f0e1;
     color: #4e342e;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .navbar {
     background-color: #462f2b;
     color: white;
-    padding: 16px;
+    padding: 16px 32px;
     font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    font-family: 'Georgia', serif;
+    display: flex;
+    text-align: center;
+    justify-content: center;
 }
 
 .hero {
     text-align: center;
-    background-color: #6d4c41;
+    background: linear-gradient(135deg, #6d4c41, #8d6e63);
     color: white;
-    padding: 60px 20px;
+    padding: 80px 20px 60px;
+    border-radius: 0 0 32px 32px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar {
-    padding: 20px;
-    text-align: center;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .search-bar input {
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 50%;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+}
+
+.search-btn {
+    padding: 12px 20px;
+    background-color: #3e2723;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #5d4037;
 }
 
 .featured {
-    padding: 20px;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.featured h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    color: #3e2723;
 }
 
 .carousel {
-    background-color: #d7ccc8;
-    padding: 20px;
-    border-radius: 8px;
-    margin-top: 10px;
-    text-align: center;
+    background-color: #efebe9;
+    padding: 30px;
+    border-radius: 16px;
+    margin: 0 auto;
+    max-width: 700px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-style: italic;
 }
 
 .footer {
     background-color: #3e2723;
     color: white;
     text-align: center;
-    padding: 16px;
-    margin-top: 40px;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
 }
