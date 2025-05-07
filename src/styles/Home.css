@@ -1,0 +1,51 @@
+.home {
+    background-color: #f5f0e1;
+    color: #4e342e;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #462f2b;
+    color: white;
+    padding: 16px;
+    font-size: 24px;
+}
+
+.hero {
+    text-align: center;
+    background-color: #6d4c41;
+    color: white;
+    padding: 60px 20px;
+}
+
+.search-bar {
+    padding: 20px;
+    text-align: center;
+}
+
+.search-bar input {
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.featured {
+    padding: 20px;
+}
+
+.carousel {
+    background-color: #d7ccc8;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #3e2723;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    margin-top: 40px;
+}

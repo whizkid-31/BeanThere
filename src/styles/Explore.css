@@ -1,0 +1,57 @@
+.explore {
+    background-color: #fffaf3;
+    color: #4e342e;
+}
+
+.navbar {
+    background-color: #3e2723;
+    color: white;
+    padding: 16px;
+    font-size: 24px;
+}
+
+.explore-content {
+    display: flex;
+}
+
+.filters {
+    width: 250px;
+    background: #d7ccc8;
+    padding: 20px;
+}
+
+.filters input,
+.filters select {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 6px;
+}
+
+.cafes {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.cafe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.cafe-card {
+    background: #f5f0e1;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+.pagination {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #3e2723;
+    color: white;
+    text-align: center;
+    padding: 16px;
+}
