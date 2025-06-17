@@ -1,21 +1,42 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import '../styles/CafeDetails.css';
 
 function CafeDetailsPage() {
+  const location = useLocation();
+  const cafe = location.state?.cafe;
+
+  if (!cafe) {
+    return (
+      <div className="cafe-details">
+        <nav className="navbar">☕ BeanThere</nav>
+        <div className="error-msg">
+          <h2>Café data not found.</h2>
+          <p>Please explore some cafés first!</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="cafe-details">
       <nav className="navbar">☕ BeanThere</nav>
 
       <div className="banner">
-        <h1>📍 Featured Cafe</h1>
-        <p>Beautiful view, rich aroma, and cozy vibes</p>
+        <h1>📍 {cafe.name}</h1>
+        <p>{cafe.description || "Beautiful view, rich aroma, and cozy vibes"}</p>
       </div>
 
-      <section className="info">
-        <h2>Cafe Name</h2>
-        <p><strong>Rating:</strong> 4/5 ⭐⭐⭐⭐</p>
-        <p><strong>Category:</strong> Cafe</p>
-      </section>
+      <div className="info">
+        <p><strong>Rating:</strong> {cafe.rating} ⭐</p>
+        <p><strong>Category:</strong> {cafe.category}</p>
+        <p><strong>Address:</strong> {cafe.address}</p>
+        <p><strong>Area:</strong> {cafe.location}</p>
+      </div>
+
+      <div className="cafe-img-wrapper">
+        <img src={cafe.image} alt={cafe.name} className="cafe-details-img" />
+      </div>
 
       <section className="menu">
         <h2>Menu</h2>

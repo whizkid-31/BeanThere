@@ -1,47 +1,139 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/Explore.css';
 
 function ExplorePage() {
+  const [region, setRegion] = useState('');
+  const [area, setArea] = useState('');
+  const [cafes, setCafes] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [statusMsg, setStatusMsg] = useState('');
+
+  const navigate = useNavigate();
+
+  const handleRegionChange = (e) => {
+    setRegion(e.target.value);
+    setArea('');
+    setCafes([]);
+    setStatusMsg('');
+  };
+
+  const handleAreaChange = (e) => {
+    setArea(e.target.value);
+    setCafes([]);
+    setStatusMsg('');
+  };
+
+  const handleSearch = async () => {
+    if (!area) return;
+
+    setLoading(true);
+    setStatusMsg('');
+
+    try {
+      const response = await fetch('https://681f384b72e59f922ef599b9.mockapi.io/beanthere/Cafes');
+      const data = await response.json();
+
+      const filteredCafes = data.filter((cafe) =>
+        cafe.location?.toLowerCase().includes(area.toLowerCase())
+      );
+
+      if (filteredCafes.length === 0) {
+        setStatusMsg('No cafés found in this area.');
+      }
+
+      setCafes(filteredCafes);
+    } catch (error) {
+      console.error('Error fetching café data:', error);
+      setStatusMsg('Failed to fetch café data. Try again.');
+    }
+
+    setLoading(false);
+  };
+
+  const areaOptions = {
+    delhi: ['North Delhi', 'South Delhi', 'East Delhi', 'West Delhi', 'Central Delhi'],
+    ncr: ['Faridabad', 'Ghaziabad', 'Noida', 'Gurgaon', 'Sonipat'],
+  };
+
   return (
     <div className="explore">
       <nav className="navbar">☕ BeanThere</nav>
 
       <div className="explore-content">
-        <aside className="filters">
-          <h3>🔍 Filters</h3>
+        <div className="filters">
+          <h3 style={{ textAlign: 'center' }}>Find Cafés</h3>
 
-          <label>Location</label>
-          <input type="text" placeholder="Enter location" />
-
-          <label>Rating</label>
-          <select>
-            <option>All</option>
-            <option>3+</option>
-            <option>4+</option>
-            <option>5</option>
-            <option>Best Customer Reviews</option>
+          <label htmlFor="region">Region</label>
+          <select id="region" value={region} onChange={handleRegionChange}>
+            <option value="">-- Select Region --</option>
+            <option value="delhi">Delhi</option>
+            <option value="ncr">NCR</option>
           </select>
 
-          <label>Category</label>
-          <select>
-            <option>Brewery</option>
-            <option>Cafe</option>
-            <option>Restaurant</option>
-            <option>Takeaway</option>
-          </select>
-        </aside>
+          {region && (
+            <>
+              <label htmlFor="area">Area</label>
+              <select id="area" value={area} onChange={handleAreaChange}>
+                <option value="">-- Select Area --</option>
+                {areaOptions[region].map((areaName) => (
+                  <option key={areaName} value={areaName}>
+                    {areaName}
+                  </option>
+                ))}
+              </select>
+            </>
+          )}
 
-        <main className="cafes">
-          <h2>Explore Cafés Near You</h2>
+          <button className="search-btn" onClick={handleSearch}>
+            Get Cafés
+          </button>
+        </div>
+
+        <div className="cafes">
+          <h2>Explore Cafés</h2>
+
+          {loading && <p className="status-msg">Loading...</p>}
+          {statusMsg && <p className="status-msg error">{statusMsg}</p>}
+
           <div className="cafe-grid">
-            <div className="cafe-card">☕  Cafe 1</div>
-            <div className="cafe-card">☕  Cafe 2</div>
-            <div className="cafe-card">☕  Cafe 3</div>
+            {cafes.map((cafe) => (
+              <div
+                key={cafe.id}
+                className="cafe-card"
+                role="button"
+                tabIndex={0}
+                onClick={() => navigate(`/cafe/${cafe.id}`, { state: { cafe } })}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    navigate(`/cafe/${cafe.id}`, { state: { cafe } });
+                  }
+                }}
+              >
+                <img
+                  src={cafe.image}
+                  alt={cafe.name}
+                  className="cafe-img"
+                />
+                <div className="cafe-info">
+                  <h3 className="cafe-name">{cafe.name}</h3>
+                  <p className="cafe-location">
+                    <strong>📍</strong> {cafe.location}
+                  </p>
+                  <p className="cafe-rating">
+                    <strong>⭐</strong> {cafe.rating} / 5
+                  </p>
+                  <p className="cafe-category">
+                    <strong>☕</strong> {cafe.category}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        </main>
+        </div>
       </div>
 
-      <footer className="footer">© BeanThere 2025 • Explore the Aroma!</footer>
+      <footer className="footer">© BeanThere 2025 • Sip. Savor. Smile.</footer>
     </div>
   );
 }
