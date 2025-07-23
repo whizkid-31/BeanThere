@@ -1,112 +1,146 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .cafe-details {
-    background-color: #fffaf3;
-    color: #4e342e;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    color: #333;
 }
 
 .navbar {
-    background-color: #3e2723;
+    background-color: #6f4e37;
     color: white;
-    padding: 16px 32px;
-    font-size: 24px;
+    padding: 1rem;
+    font-size: 1.5rem;
     font-weight: bold;
     text-align: center;
 }
 
-.banner {
-    background-color: #d7ccc8;
+.cafe-banner {
     text-align: center;
-    padding: 40px 20px;
-    border-radius: 0 0 20px 20px;
-    box-shadow: inset 0 -4px 6px rgba(0, 0, 0, 0.05);
+    padding: 2rem 1rem 1rem;
 }
 
-.banner h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
+.cafe-name {
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #3b2f2f;
 }
 
-.banner p {
-    font-size: 18px;
-    color: #5d4037;
+.cafe-top-section {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 2rem;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 .cafe-img-container {
+    flex: 1 1 40%;
+    max-width: 500px;
+}
+
+.cafe-main-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cafe-info-box {
+    flex: 1 1 40%;
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    line-height: 2rem;
+}
+
+.cafe-info-box p {
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.favorites-section {
+    background-color: #fff8e7;
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.fav-heading {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #6f4e37;
+}
+
+.fav-tagline {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.favorites-custom-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.favorites-row {
     display: flex;
     justify-content: center;
-    margin: 20px;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
-.cafe-image-large {
-    width: 80%;
-    max-height: 400px;
-    border-radius: 16px;
-    object-fit: cover;
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+.favorites-row.single {
+    justify-content: center;
 }
 
-.info,
-.menu,
-.map {
-    padding: 30px;
-    margin: 20px;
-    background: #efebe9;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.info h2,
-.menu h2,
-.map h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-}
-
-.menu ul {
-    list-style: none;
-    padding: 0;
-}
-
-.menu li {
+.favorite-card-horizontal {
     display: flex;
-    justify-content: space-between;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    background: white;
+    background-color: #fff;
+    border: 3px solid #b22222;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 420px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.favorite-card-horizontal:hover {
+    transform: translateY(-5px);
+}
+
+.favorite-img-horizontal {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s;
 }
 
-.menu li:hover {
-    transform: scale(1.02);
+.favorite-info-horizontal h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #3b2f2f;
 }
 
-.map-placeholder {
-    background: #c7b7ad;
-    height: 200px;
-    border-radius: 8px;
-    text-align: center;
-    line-height: 200px;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
+.favorite-info-horizontal p {
+    margin-top: 0.5rem;
+    color: #444;
+    font-size: 1rem;
 }
 
 .footer {
-    background-color: #3e2723;
+    background-color: #6f4e37;
     color: white;
     text-align: center;
-    padding: 16px;
-    margin-top: auto;
-    font-size: 14px;
+    padding: 1rem;
+    margin-top: 3rem;
 }

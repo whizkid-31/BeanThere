@@ -93,9 +93,11 @@
 }
 
 .explore-btn {
+    height: 75px;
+    width: 275px;
     background-color: #422d2a;
     color: white;
-    font-size: 18px;
+    font-size: 20px;
     padding: 14px 32px;
     margin-bottom: 75px;
     border: none;

@@ -22,37 +22,50 @@ function CafeDetailsPage() {
     <div className="cafe-details">
       <nav className="navbar">☕ BeanThere</nav>
 
-      <div className="banner">
-        <h1>📍 {cafe.name}</h1>
-        <p>{cafe.description || "Beautiful view, rich aroma, and cozy vibes"}</p>
+      <div className="cafe-banner">
+        <h1 className="cafe-name">{cafe.name.toUpperCase()}</h1>
       </div>
 
-      <div className="info">
-        <p><strong>Rating:</strong> {cafe.rating} ⭐</p>
-        <p><strong>Category:</strong> {cafe.category}</p>
-        <p><strong>Address:</strong> {cafe.address}</p>
-        <p><strong>Area:</strong> {cafe.location}</p>
+      <div className="cafe-top-section">
+        <div className="cafe-img-container">
+          <img src={cafe.image} alt={cafe.name} className="cafe-main-img" />
+        </div>
+        <div className="cafe-info-box">
+          <p><strong>⭐ Rating:</strong> {cafe.rating} / 5</p>
+          <p><strong>☕ Category:</strong> {cafe.category}</p>
+          <p><strong>📍 Location:</strong> {cafe.location}</p>
+        </div>
       </div>
 
-      <div className="cafe-img-wrapper">
-        <img src={cafe.image} alt={cafe.name} className="cafe-details-img" />
-      </div>
+      <section className="favorites-section">
+        <h2 className="fav-heading">FAVORITES</h2>
+        <p className="fav-tagline">These are our bestsellers!</p>
 
-      <section className="menu">
-        <h2>Menu</h2>
-        <ul>
-          <li><span>Espresso</span><span>₹99</span></li>
-          <li><span>Latte</span><span>₹139</span></li>
-          <li><span>Cappuccino</span><span>₹109</span></li>
-          <li><span>Flavored Frappuccino</span><span>₹169</span></li>
-          <li><span>Veg Sandwich</span><span>₹79</span></li>
-          <li><span>Munchies/Treats</span><span>MRP</span></li>
-        </ul>
-      </section>
+        <div className="favorites-custom-layout">
+          <div className="favorites-row">
+            {cafe.favorites.slice(0, 2).map((item, index) => (
+              <div className="favorite-card-horizontal" key={index}>
+                <img src={item.image} alt={item.name} className="favorite-img-horizontal" />
+                <div className="favorite-info-horizontal">
+                  <h3>{item.name}</h3>
+                  <p>₹{item.price} approx</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-      <section className="map">
-        <h2>Map & Directions</h2>
-        <div className="map-placeholder">Location Map (Yet to be uploaded)</div>
+          {cafe.favorites[2] && (
+            <div className="favorites-row single">
+              <div className="favorite-card-horizontal">
+                <img src={cafe.favorites[2].image} alt={cafe.favorites[2].name} className="favorite-img-horizontal" />
+                <div className="favorite-info-horizontal">
+                  <h3>{cafe.favorites[2].name}</h3>
+                  <p>₹{cafe.favorites[2].price} approx</p>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </section>
 
       <footer className="footer">© BeanThere 2025 • Sip. Savor. Smile.</footer>
