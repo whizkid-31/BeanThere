@@ -18,6 +18,14 @@ function CafeDetailsPage() {
     );
   }
 
+  const cafeImages = [
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+  ];
+
   return (
     <div className="cafe-details">
       <nav className="navbar">☕ BeanThere</nav>
@@ -28,7 +36,7 @@ function CafeDetailsPage() {
 
       <div className="cafe-top-section">
         <div className="cafe-img-container">
-          <img src={cafe.image} alt={cafe.name} className="cafe-main-img" />
+          <img src={cafeImages[0]} alt={cafe.name} className="cafe-main-img" />
         </div>
         <div className="cafe-info-box">
           <p><strong>⭐ Rating:</strong> {cafe.rating} / 5</p>
@@ -44,7 +52,7 @@ function CafeDetailsPage() {
   <div className="favorites-row">
     {cafe.favorites.slice(0, 2).map((item, index) => (
       <div className="favorite-card" key={index}>
-        <img src={item.image} alt={item.name} className="favorite-img" />
+        <img src={cafeImages[index + 1]} alt={item.name} className="favorite-img" />
         <div className="favorite-info">
           <h3>{item.name}</h3>
           <p>₹{item.price} approx</p>
@@ -57,7 +65,7 @@ function CafeDetailsPage() {
     <div className="favorites-row single-center">
       <div className="favorite-card wider-card">
         <img
-          src={cafe.favorites[2].image}
+          src={cafeImages[3]}
           alt={cafe.favorites[2].name}
           className="favorite-img"
         />
