@@ -70,71 +70,68 @@
 }
 
 .fav-heading {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
     color: #6f4e37;
+    margin-bottom: 15px;
 }
 
 .fav-tagline {
-    font-size: 1rem;
+    font-size: 1.3rem;
     color: #555;
     margin-bottom: 2rem;
-}
-
-.favorites-custom-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
 }
 
 .favorites-row {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
 }
 
-.favorites-row.single {
-    justify-content: center;
-}
-
-.favorite-card-horizontal {
-    display: flex;
+.favorite-card {
     background-color: #fff;
-    border: 3px solid #b22222;
+    border: 2px solid #b22222;
     border-radius: 10px;
     padding: 1rem;
-    width: 420px;
+    width: 42%;
+    max-width: 420px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    align-items: center;
-    gap: 1rem;
     transition: transform 0.2s ease;
 }
 
-.favorite-card-horizontal:hover {
+.favorite-card:hover {
     transform: translateY(-5px);
 }
 
-.favorite-img-horizontal {
-    width: 150px;
-    height: 150px;
+.favorite-img {
+    width: 100%;
+    height: 280px;
     object-fit: cover;
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+    margin-bottom: 0.8rem;
 }
 
-.favorite-info-horizontal h3 {
-    margin: 0;
+.favorite-info h3 {
     font-size: 1.2rem;
     font-weight: bold;
     color: #3b2f2f;
+    margin-bottom: 0.3rem;
 }
 
-.favorite-info-horizontal p {
-    margin-top: 0.5rem;
-    color: #444;
+.favorite-info p {
     font-size: 1rem;
+    color: #444;
+}
+
+.favorites-row.single-center {
+    justify-content: center;
+}
+
+.wider-card {
+    width: 60%;
+    max-width: 520px;
 }
 
 .footer {

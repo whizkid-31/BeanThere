@@ -38,35 +38,37 @@ function CafeDetailsPage() {
       </div>
 
       <section className="favorites-section">
-        <h2 className="fav-heading">FAVORITES</h2>
-        <p className="fav-tagline">These are our bestsellers!</p>
+  <h2 className="fav-heading">FAVORITE ITEMS</h2>
+  <p className="fav-tagline">Explore our bestsellers!</p>
 
-        <div className="favorites-custom-layout">
-          <div className="favorites-row">
-            {cafe.favorites.slice(0, 2).map((item, index) => (
-              <div className="favorite-card-horizontal" key={index}>
-                <img src={item.image} alt={item.name} className="favorite-img-horizontal" />
-                <div className="favorite-info-horizontal">
-                  <h3>{item.name}</h3>
-                  <p>₹{item.price} approx</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {cafe.favorites[2] && (
-            <div className="favorites-row single">
-              <div className="favorite-card-horizontal">
-                <img src={cafe.favorites[2].image} alt={cafe.favorites[2].name} className="favorite-img-horizontal" />
-                <div className="favorite-info-horizontal">
-                  <h3>{cafe.favorites[2].name}</h3>
-                  <p>₹{cafe.favorites[2].price} approx</p>
-                </div>
-              </div>
-            </div>
-          )}
+  <div className="favorites-row">
+    {cafe.favorites.slice(0, 2).map((item, index) => (
+      <div className="favorite-card" key={index}>
+        <img src={item.image} alt={item.name} className="favorite-img" />
+        <div className="favorite-info">
+          <h3>{item.name}</h3>
+          <p>₹{item.price} approx</p>
         </div>
-      </section>
+      </div>
+    ))}
+  </div>
+
+  {cafe.favorites[2] && (
+    <div className="favorites-row single-center">
+      <div className="favorite-card wider-card">
+        <img
+          src={cafe.favorites[2].image}
+          alt={cafe.favorites[2].name}
+          className="favorite-img"
+        />
+        <div className="favorite-info">
+          <h3>{cafe.favorites[2].name}</h3>
+          <p>₹{cafe.favorites[2].price} approx</p>
+        </div>
+      </div>
+    </div>
+  )}
+  </section>
 
       <footer className="footer">© BeanThere 2025 • Sip. Savor. Smile.</footer>
     </div>
