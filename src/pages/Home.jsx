@@ -30,10 +30,6 @@ function HomePage() {
             <p>Read real customer experiences before your visit.</p>
           </div>
           <div className="service-card">
-            <h3>Bookmark Favorites</h3>
-            <p>Save cafés you love and revisit them with ease.</p>
-          </div>
-          <div className="service-card">
             <h3>Ambience Tags</h3>
             <p>Filter by vibes—quiet, aesthetic, work-friendly, and more.</p>
           </div>
