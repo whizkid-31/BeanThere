@@ -96,27 +96,72 @@ html {
 
 .cafe-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(48%, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    margin: 32px auto;
+    width: 85%;
+    max-width: 1200px;
+}
+
+@media (max-width: 900px) {
+  .cafe-grid {
+    grid-template-columns: 1fr;
+    width: 95%;
+  }
+}
+
+@media (max-width: 600px) {
+  .cafe-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .cafe-card {
     background-color: #ffffff;
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s;
+    padding: 0;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
-}
-
-.cafe-card h3{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-size: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 420px;
 }
 
 .cafe-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.16);
+}
+
+.cafe-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+.cafe-info {
+    padding: 24px 20px 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cafe-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #3e2723;
+}
+
+.cafe-location, .cafe-rating, .cafe-category {
+    font-size: 1rem;
+    margin-bottom: 6px;
+    color: #6d4c41;
 }
 
 .status-msg {
